@@ -1,0 +1,7 @@
+
+install speechRecognisition
+pip install pipwin
+pipwin install pyaudio
+install pyaudio
+
+pip install wikipedia
