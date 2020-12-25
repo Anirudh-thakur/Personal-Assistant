@@ -14,6 +14,8 @@ voices = engine.getProperty('voices')
 #print(voices)
 #Set properties and check voices
 engine.setProperty('voice',voices[0].id)
+#used to change the voice of the assitant
+Voiceflag = 0
 #speach function
 def speak(audio):
     engine.say(audio)
@@ -75,3 +77,13 @@ if __name__ == "__main__":
             speak(query)
         elif "open google" in query:
             webbrowser.get(chrome_path).open("google.com")
+        elif "change voice" in query:
+            if Voiceflag == 0 :
+                engine.setProperty('voice', voices[1].id)
+                Voiceflag = 1
+                wishMe()
+            else :
+                engine.setProperty('voice', voices[0].id)
+                Voiceflag = 0
+                wishMe()
+
