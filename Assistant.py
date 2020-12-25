@@ -7,7 +7,10 @@ import speech_recognition as sr
 #for wikipedia 
 import wikipedia
 import webbrowser
-
+#to access programs in os 
+import os
+#play random songs 
+import random
 #import speaking engine and using microsoft api for voices 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -86,4 +89,16 @@ if __name__ == "__main__":
                 engine.setProperty('voice', voices[0].id)
                 Voiceflag = 0
                 wishMe()
+        elif "play punjabi music" in query:
+            webbrowser.get(chrome_path).open(
+                "https://wynk.in/music/package/punjabi-top-50/bb_1512370496100")
+        elif "play music" in query:
+            speak("Playing music")
+            music_dir = "C:\\Users\\Anirudh\\Desktop\\Anirudh\\DataScience\\Git Projects\\Personal Assitant\\Music playlist"
+            songs = os.listdir(music_dir);
+            randomSong = random.randint(0,len(songs)-1)
+            os.startfile(os.path.join(music_dir,songs[randomSong]))
+        elif "play rock music" in query:
+            webbrowser.get(chrome_path).open(
+                "https://wynk.in/music/playlist/feel-good-classic-rock/bb_1522918663585")
 
