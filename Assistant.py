@@ -74,3 +74,4 @@ if __name__ == "__main__":
             query = query.replace("speak","")
             speak(query)
         elif "open google" in query:
+            webbrowser.get(chrome_path).open("google.com")
