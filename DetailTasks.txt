@@ -1,0 +1,35 @@
+Practice Data Science :-
+1. R : 2 modules simplilearn
+2. Documentations
+https://docs.python.org/3.9/tutorial/controlflow.html
+
+https://pandas.pydata.org/docs/user_guide/index.html#user-guide
+
+https://numpy.org/doc/stable/user/quickstart.html
+
+https://scikit-learn.org/stable/getting_started.html
+
+https://www.youtube.com/c/enthought/playlists
+
+https://docs.google.com/document/d/1RzKAtpPJ5pnXO9KI5T76TJ46XfZci9Iho4YZzOQsQVk/edit
+
+3. Ebook :
+chrome-extension://ohfgljdgelakfkefopgklcohadegdpjf/https://tanthiamhuat.files.wordpress.com/2018/04/pythondatasciencehandbook.pdf
+
+Recommender models
+https://www.kaggle.com/rounakbanik/movie-recommender-systems
+https://www.kaggle.com/gspmoreira/recommender-systems-in-python-101
+https://www.kaggle.com/devvindan/recommender-systems-basics
+https://www.kaggle.com/gunnvant/building-content-recommender-tutorial
+
+Quizes :
+http://thedatamonk.com/daily-data-science-quiz/
+https://www.sanfoundry.com/1000-data-science-questions-answers/
+https://www.socscistatistics.com/quizzes/
+
+Projects :
+https://www.geeksforgeeks.org/birthday-reminder-application-python/
+https://www.geeksforgeeks.org/python-whatsapp-birthday-bot/?ref=rp
+https://www.geeksforgeeks.org/python-todo-gui-application-using-tkinter/?ref=rp
+https://data-flair.training/blogs/data-science-project-ideas/
+

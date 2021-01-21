@@ -11,14 +11,26 @@ import webbrowser
 import os
 #play random songs 
 import random
+#get user id and password for email
+import UserCreds
+#Module for sending mail
+from smtplib import SMTP
+import smtplib
+#Python jokes 
+import pyjokes
+
+
 #import speaking engine and using microsoft api for voices 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-#print(voices)
+print(voices)
 #Set properties and check voices
-engine.setProperty('voice',voices[0].id)
+engine.setProperty('voice',voices[1].id)
+engine.setProperty('rate',170)
 #used to change the voice of the assitant
-Voiceflag = 0
+Voiceflag = 1
+
+
 #speach function
 def speak(audio):
     engine.say(audio)
@@ -47,10 +59,34 @@ def takeCommand():
         #speak("User said:"+query)
         print(query)
     except Exception as e:
-        #print(e)
-        print("Say that again please....")
+        print(e)
+        speak("Say that again please....or Check the Internet")
         return "None"
     return query
+
+#To send mail
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com')
+    server.ehlo()
+    server.starttls()
+    server.login(UserCreds.Email_id,UserCreds.Password)
+    server.sendmail(UserCreds.Email_id,to,content)
+    server.close()
+
+#To set reminder 
+def saveReminder(content):
+    if "remind me to" in content:
+        content = content.replace("remind me to","")
+    Reminder = open(r"Reminders.txt", "a+")
+    Reminder.write(content)
+    Reminder.close()
+
+#To get reminders
+def getReminders():
+    Reminder = open(r"Reminders.txt", "r+")
+    speak(Reminder.readlines)
+    Reminder.close()
+
 if __name__ == "__main__":
     wishMe()
     #Path for opening chrome in browser
@@ -59,8 +95,11 @@ if __name__ == "__main__":
         query = takeCommand().lower()
         #For switching of Anchit
         if query == "goodbye brother":
-            speak("GoodBye Sir")
+            speak("GoodBye Bro")
             break
+        #Introduce yourself
+        if "who are you" in query or "introduce yourself" in query:
+            speak("My name is Anchit. I am an Artificial Intelligence Assistant program.")
         #for searching wikipedia
         if "wikipedia" in query:
             speak("Searching wikipedia...")
@@ -70,7 +109,7 @@ if __name__ == "__main__":
             speak(result)
         #Youtube open in chrome
         elif "open youtube" in query:
-    
+            speak("Opening Youtube")
             if "search stand up" in query:
                 webbrowser.get(chrome_path).open("https://www.youtube.com/results?search_query=standup")
             else:
@@ -81,19 +120,20 @@ if __name__ == "__main__":
         elif "open google" in query:
             webbrowser.get(chrome_path).open("google.com")
         elif "change voice" in query:
-            if Voiceflag == 0 :
-                engine.setProperty('voice', voices[1].id)
-                Voiceflag = 1
-                wishMe()
-            else :
-                engine.setProperty('voice', voices[0].id)
-                Voiceflag = 0
-                wishMe()
+            randomVoice = Voiceflag;
+            while randomVoice == Voiceflag:
+                randomVoice = random.randint(0, len(voices)-1)
+            engine.setProperty('voice', voices[randomVoice].id)
+            wishMe()
+            Voiceflag = randomVoice
+        elif "original voice" in query:
+            engine.setProperty('voice', voices[1].id)
+            wishMe()
         elif "play punjabi music" in query:
             webbrowser.get(chrome_path).open(
                 "https://wynk.in/music/package/punjabi-top-50/bb_1512370496100")
         elif "play music" in query:
-            speak("Playing music")
+            speak("Playing... music.....")
             music_dir = "C:\\Users\\Anirudh\\Desktop\\Anirudh\\DataScience\\Git Projects\\Personal Assitant\\Music playlist"
             songs = os.listdir(music_dir);
             randomSong = random.randint(0,len(songs)-1)
@@ -101,4 +141,42 @@ if __name__ == "__main__":
         elif "play rock music" in query:
             webbrowser.get(chrome_path).open(
                 "https://wynk.in/music/playlist/feel-good-classic-rock/bb_1522918663585")
+        #Get time 
+        elif "the time" in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"Sir, the time is {strTime}")
+        #reminder
+        elif "set a reminder" in query:
+            try:
+                speak("What should I remind you ?")
+                content = takeCommand()
+                saveReminder(content)
+                speak("Reminder saved")
+            except Exception as e:
+                speak("Sorry could not set reminder")
+        elif "my reminders" in query:
+            try:
+                getReminders()
+                speak("I guess that's all I had to remind you, bro")
+            except Exception as e:
+                speak("Sorry could not fetch reminders")
 
+        elif "toss a coin" in query:
+            coinResult = random.randint(0,1)
+            if coinResult == 0 :
+                speak("Its a Head!")
+            else :
+                speak("Its Tails!")
+        #Email 
+        elif 'email to devika' in query:
+            try:
+                speak("What should I say?")
+                content = takeCommand()
+                to = "devikabhutani@gmail.com"
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry was not able to send mail.")
+        elif 'joke' in query:
+            speak(pyjokes.get_joke())
