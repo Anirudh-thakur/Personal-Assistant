@@ -11,14 +11,17 @@ import webbrowser
 import os
 #play random songs 
 import random
-#get user id and password for email
+#get user id and password and api 
 import UserCreds
 #Module for sending mail
 from smtplib import SMTP
 import smtplib
 #Python jokes 
 import pyjokes
-
+#for sending requests to api like wolframalpha
+import requests
+#for using inbuild functions 
+import wolframalpha
 
 #import speaking engine and using microsoft api for voices 
 engine = pyttsx3.init('sapi5')
@@ -180,3 +183,15 @@ if __name__ == "__main__":
                 speak("Sorry was not able to send mail.")
         elif 'joke' in query:
             speak(pyjokes.get_joke())
+        elif 'calculate' in query:
+            try:
+                app_id = UserCreds.AppId_Wolf
+                client = wolframalpha.Client(app_id)
+                indx = query.lower().split().index('calculate')
+                query = query.split()[indx + 1:]
+                res = client.query(' '.join(query))
+                answer = next(res.results).text
+                print("The answer is " + answer)
+                speak("The answer is " + answer)
+            except:
+                speak("Sorry couldnt compute")
