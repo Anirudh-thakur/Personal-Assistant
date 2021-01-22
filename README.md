@@ -1,5 +1,8 @@
 # Personal-Assistant
-Python program to create personal assitant using speech recognition, Google API
+Python program to create personal assistant using speech recognition, Google API
+and adding a simple UI using tkinter
+
+run GUIBasics.py using python GUIBasics.py
 
 Use requirement.txt to get all required packages (use pip install -r requirements.txt)
 
@@ -17,6 +20,7 @@ Functionality :-
 9. Toss a coin
 10. Tell a joke 
 11. Calculate (using wolfmalpha api)
+12. Simple UI
 
 To do :- 
 1 Give good web interface , gtts import gTTS for text to speech 
