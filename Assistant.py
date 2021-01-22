@@ -90,7 +90,8 @@ def getReminders():
     speak(Reminder.readlines)
     Reminder.close()
 
-if __name__ == "__main__":
+
+def MainClass():
     wishMe()
     #Path for opening chrome in browser
     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
@@ -105,11 +106,14 @@ if __name__ == "__main__":
             speak("My name is Anchit. I am an Artificial Intelligence Assistant program.")
         #for searching wikipedia
         if "wikipedia" in query:
-            speak("Searching wikipedia...")
-            query = query.replace("wikipedia","")
-            result = wikipedia.summary(query,sentences=2)
-            speak("According to wikipedia")
-            speak(result)
+            try:
+                speak("Searching wikipedia...")
+                query = query.replace("wikipedia","")
+                result = wikipedia.summary(query,sentences=2)
+                speak("According to wikipedia")
+                speak(result)
+            except:
+                speak("Sorry nothing found on wikipedia")
         #Youtube open in chrome
         elif "open youtube" in query:
             speak("Opening Youtube")
