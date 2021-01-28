@@ -12,9 +12,14 @@ enable less secure apps in gmail to send mail(Store mail credentials in UserCred
 Clone the project and install using pip install -r requirements.txt 
 
 You can also create a virtual environment if you want by following :-
+
 https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
+
 (Make sure you dont use python3.7.6 as it doesnt work well with pyttsx3)
-You can use virtualenv -p python3.7.5 [name_of_the_env] - to install virtual env command using a specific python version or use conda create --name [name] python=3.7.5 - to install using conda 
+
+You can use virtualenv -p python3.7.5 [name_of_the_env] - to install virtual env command using a specific python version
+
+or use conda create --name [name] python=3.7.5 - to install using conda 
 
 # Motivation 
 To create a simple AI Assistant for small repititive tasks by using python libraries and some inbuild function and improving it with time and make use of neural networks. Fun-fact : I have named my AI bot Anchit(which is my real brother's name) cause he never works for me :P
@@ -52,9 +57,13 @@ To create a simple AI Assistant for small repititive tasks by using python libra
 
 # References 
 https://medium.com/@singhpuneei/how-to-added-more-speakers-and-voices-in-pyttsx3-offline-text-to-speech-812c83d14c13
+
 https://stackoverflow.com/questions/22445217/python-webbrowser-open-to-open-chrome-browser
+
 https://www.youtube.com/watch?v=Lp9Ftuq2sVI&t=1577s
+
 https://www.geeksforgeeks.org/voice-assistant-using-python/
+
 https://dev.to/coderasha/build-virtual-assistant-with-python-automate-tasks-46a6
 
 UI : https://dev.to/mshrish/making-a-simple-voice-controlled-personal-assistant-interface-using-python-5ce1
