@@ -12,29 +12,6 @@ import os
 #play random songs 
 import random
 #get user id and password and api 
-import UserCreds
-#Module for sending mail
-from smtplib import SMTP
-import smtplib
-#Python jokes 
-import pyjokes
-#for sending requests to api like wolframalpha
-import requests
-#for using inbuild functions 
-import wolframalpha
-
-#import speaking engine and using microsoft api for voices 
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-print(voices)
-#Set properties and check voices
-engine.setProperty('voice',voices[1].id)
-engine.setProperty('rate',170)
-#used to change the voice of the assitant
-Voiceflag = 1
-
-
-#speach function
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
