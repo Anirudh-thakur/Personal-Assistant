@@ -20,8 +20,14 @@ import smtplib
 import pyjokes
 #for sending requests to api like wolframalpha
 import requests
-#for using inbuild functions 
+#for using in-build functions 
 import wolframalpha
+#For taking values from contact.csv for email and whatsap
+import numpy as np
+import pandas as pd
+#Store all contact information in contact.csv 
+Contact_df = pd.DataFrame(pd.read_csv('Contacts.csv'))
+print(Contact_df.head())
 
 #import speaking engine and using microsoft api for voices 
 engine = pyttsx3.init('sapi5')
@@ -175,11 +181,15 @@ def MainClass():
             else :
                 speak("Its Tails!")
         #Email 
-        elif 'email to devika' in query:
+        elif 'email' in query:
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "devikabhutani@gmail.com"
+                speak("To whom I should mail?")
+                to = takeCommand()
+                #Finding the name in the contacts dataframe to get address
+                index = Contact_df['Name'].str.find(to)
+                to = str(Contact_df.iloc[int(index)]['Email Address'])
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:

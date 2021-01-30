@@ -2,3 +2,5 @@ UserCreds.py
 /Assistant
 /__pycache__
 /.vscode
+Contacts.csv
+test_mail.py

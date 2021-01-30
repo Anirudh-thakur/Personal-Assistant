@@ -30,13 +30,14 @@ To create a simple AI Assistant for small repititive tasks by using python libra
 3. Play music 
 4. Change voice 
 5. Tell time 
-6. email 
+6. send email (make sure to allow less secure apps for Gmail):
+https://hotter.io/docs/email-accounts/secure-app-gmail/
 7. Speak something 
 8. Quit Functionality (goodbye brother)
 9. Toss a coin
-10. Tell a joke 
+10. Tell a joke (using pyjokes api)
 11. Calculate (using wolfmalpha api)
-12. Simple UI
+12. Simple UI (Using tkinter)
 
 
 # To do :- 
