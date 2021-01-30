@@ -21,6 +21,10 @@ You can use virtualenv -p python3.7.5 [name_of_the_env] - to install virtual env
 
 or use conda create --name [name] python=3.7.5 - to install using conda 
 
+Also create Contacts.csv containing columns : Name, Number,	Email Address in order to store your contacts for mail and whatsap and UserCreds.py with Email_id = "your_id@gmail.com",Password = "your_password" ,AppId_Wolf = "your_appId" variables for email credentials access and wolfralpha calculation api 
+
+
+
 # Motivation 
 To create a simple AI Assistant for small repititive tasks by using python libraries and some inbuild function and improving it with time and make use of neural networks. Fun-fact : I have named my AI bot Anchit(which is my real brother's name) cause he never works for me :P
 
