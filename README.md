@@ -23,6 +23,12 @@ or use conda create --name [name] python=3.7.5 - to install using conda
 
 Also create Contacts.csv containing columns : Name, Number,	Email Address in order to store your contacts for mail and whatsap and UserCreds.py with Email_id = "your_id@gmail.com",Password = "your_password" ,AppId_Wolf = "your_appId" variables for email credentials access and wolfralpha calculation api 
 
+Create an account on Twilio and wolfralpha for getting authentication keys 
+
+https://www.twilio.com/try-twilio
+
+https://www.wolframalpha.com/
+
 
 
 # Motivation 

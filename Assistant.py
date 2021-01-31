@@ -25,9 +25,11 @@ import wolframalpha
 #For taking values from contact.csv for email and whatsap
 import numpy as np
 import pandas as pd
+#for whatsap message 
+from twilio.rest import Client
 #Store all contact information in contact.csv 
 Contact_df = pd.DataFrame(pd.read_csv('Contacts.csv'))
-print(Contact_df.head())
+#print(Contact_df.head())
 
 #import speaking engine and using microsoft api for voices 
 engine = pyttsx3.init('sapi5')
@@ -209,3 +211,23 @@ def MainClass():
                 speak("The answer is " + answer)
             except:
                 speak("Sorry couldnt compute")
+        #to send sms using twilis
+        elif "send message" in query:
+                # You need to create an account on Twilio to use this service
+                account_sid = UserCreds.account_sid
+                auth_token = UserCreds.auth_token
+                client = Client(account_sid, auth_token)
+                speak("What should I say?")
+                content = takeCommand()
+                #adding twilio number to verified number from UserCreds.py
+                try:
+                    message = client.messages \
+                                .create(
+                                    body = content,
+                                    from_= UserCreds.Test_twilio_number,
+                                    to = UserCreds.To_send
+                                )
+                    speak("SMS send successfully")
+                except Exception as e:
+                    print(e)
+                    speak("Sorry was not able to send message.")
