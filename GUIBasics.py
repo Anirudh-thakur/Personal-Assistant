@@ -10,7 +10,7 @@ class Window(Frame):
         self.master = master
         self.pack()
         master.title("Anchit AI")
-        A = Label(master, text="Here to help you!")
+        A = Label(master, text="Here to help you!(Say goodbye brother to stop or close the window)")
         A.pack(side="top")
         Button(master, text="Tap to start!", width=100, relief="groove",command=self.Processo_r).pack(side="bottom")
     def Processo_r(self):

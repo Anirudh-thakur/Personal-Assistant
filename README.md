@@ -48,7 +48,7 @@ https://hotter.io/docs/email-accounts/secure-app-gmail/
 10. Tell a joke (using pyjokes api)
 11. Calculate (using wolfmalpha api)
 12. Simple UI (Using tkinter)
-
+13. Send SMS (Using twilio) (https://www.twilio.com/docs/sms/quickstart/python#install-python-and-the-twilio-helper-library)
 
 # To do :- 
 1. Give good web interface , gtts import gTTS for text to speech 
@@ -61,7 +61,7 @@ https://hotter.io/docs/email-accounts/secure-app-gmail/
 9. Reminder and ToDo list 
 10. Weather 
 11. Record songs 
-12.  recognise user 
+12. Recognise user 
 13. Random errors 
 14. from pygame import mixer ( Background music ), random bye 
 15. Add neural networks to automate responses instead of using simple if else to hard code 
